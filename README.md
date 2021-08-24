@@ -29,10 +29,10 @@ $ python src/tune.py
 The following options can be configured in the ```config.yml``` file,
 which contains the following ```key```:```value``` pairs
 
-```active```:```<dataset_name>``` - the ```active``` key is used to specify the name of the dataset that we wish to run <br>
+```active```:```<name>``` - the ```active``` key is used to specify the `name` of the dataset that we wish to run <br>
 
 ```datasets```: ```dataset_config_list``` - A ```key``` containing a list of dataset config. Each dataset config is 
-identified by the ```name``` key of the dataset followed by a nested values of ```key```:```value``` pairs. <br>
+further identified by a key (the ```name``` of the dataset) that contains a nested values of ```key```:```value``` pairs. <br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```batch_size```: ```<int_value>``` - batch size for sampling based GNNs, for full batch GNN this will be ignored <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```aug_dim```: ```<int_value>``` - the dimension of the augmentation head <br>
