@@ -8,7 +8,7 @@
 #
 # active: <dataset_name> - sepcify a dataset_name to run a particular dataset
 # datasets: 
-    # <dataset_name>:
+    # <dataset_name>: - the name of dataset
         # batch_size: <int_value> - batch size for sampling based GNNs
         # aug_dim: <int_value> - the dimension of the augmentation head
         # model_dim: <int_value> - the dimension used in the output representation
