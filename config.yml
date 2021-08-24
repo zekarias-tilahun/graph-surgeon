@@ -1,0 +1,238 @@
+# A hyper-parameter configuration file for datasets from PyTorch Geometric (PyG)
+# For a new PyG datasets, just add a new entry with a given name under datasets
+# and specify the configuration of the hyper-parameters according to the
+# following layout
+#
+#
+# The layout
+#
+# active: <dataset_name> - sepcify a dataset_name to run a particular dataset
+# datasets: 
+    # <dataset_name>:
+        # batch_size: <int_value> - batch size for sampling based GNNs
+        # aug_dim: <int_value> - the dimension of the augmentation head
+        # model_dim: <int_value> - the dimension used in the output representation
+        # dropout: <float_value> - the dropout rate in [0, 1)
+        # epochs: <int_value> - the number of self-supervised training epochs
+        # loader: <string_value> from ['full', 'neighborhood', 'cluster', 'saint'] 
+                   # activates a full batch  or sampling GNN ('neighborhood' - for GraphSAGE, 
+                   # 'cluster' - for ClusterGCN, 'saint' - for GraphSaint)
+        # lr: <float_value> - learning rate
+        # layers: <int_value> - The number of layers of the GNN encoder
+        # pre_aug: <bool_value> - True for pre-augmenation and False for post-augmentation
+        # root: <string_value> - A path to the directory to store the dataset
+        # task: <string_value> from {"bc", "mcc", 'mlc'} - The desired down-stream task
+                   # bc - binary classification, mcc - multi-class classification and
+                   # mlc - multi-label classification
+        # workers: <int_value> - The number of cpu workers for reading data
+
+
+active: wiki 
+datasets:
+  actor:
+    batch_size: 1000 
+    aug_dim: 256
+    model_dim: 128
+    dropout: 0.4243442703839061
+    epochs: 150
+    gamma: 0.19422922752232297
+    loader: full
+    lr: 0.002285857573066061
+    layers: 2
+    norm: False
+    pre_aug: False
+    root: ~/workspace/data/surgeon/Actor
+    task: mcc 
+    workers: 32
+  computers:
+    batch_size: 1000
+    aug_dim: 256
+    model_dim: 128
+    dropout: 0.8219798354413281
+    epochs: 50
+    gamma: 0.913962662010716
+    loader: full
+    lr: .0005644452491142597
+    layers: 2
+    norm: False
+    pre_aug: True
+    root: ~/workspace/data/surgeon/Computers
+    task: mcc 
+    workers: 32
+  cora:
+    batch_size: 1000
+    aug_dim: 256
+    model_dim: 128
+    dropout: 0.20028224893049887
+    epochs: 150
+    gamma: 0.4425717267838808
+    lr: 0.01696131403749535
+    loader: full
+    layers: 2
+    norm: False
+    pre_aug: True
+    root: ~/workspace/data/surgeon/cora
+    task: mcc 
+    workers: 32
+  cs:
+    batch_size: 1000
+    aug_dim: 256
+    model_dim: 128
+    epochs: 50
+    gamma: 0.01
+    lr: 0.001
+    loader: full
+    layers: 2
+    norm: False
+    pre_aug: False
+    root: ~/workspace/data/surgeon/CS
+    task: mcc 
+    workers: 32
+  dblp:
+    batch_size: 1024
+    aug_dim: 256
+    model_dim: 128
+    dropout: 0.4
+    epochs: 50
+    gamma: 0.86
+    lr: 0.001
+    loader: full
+    layers: 2
+    norm: False
+    pre_aug: False
+    root: ~/workspace/data/surgeon/dblp
+    task: mcc 
+    workers: 32
+  facebook:
+    batch_size: 1000
+    aug_dim: 256
+    model_dim: 128
+    dropout: 0.7
+    epochs: 50
+    gamma: 0.5
+    lr: 0.001
+    loader: full
+    layers: 2
+    norm: False
+    pre_aug: False
+    root: ~/workspace/data/surgeon/facebook
+    task: mcc 
+  flickr:
+    batch_size: 5000
+    aug_dim: 256
+    model_dim: 128
+    dropout: 0.6
+    epochs: 300
+    gamma: 0.01
+    lr: 0.001
+    loader: full
+    layers: 2
+    norm: False
+    pre_aug: False
+    root: ~/workspace/data/surgeon/Flickr
+    task: mcc 
+    workers: 32
+  git:
+    batch_size: 1280
+    aug_dim: 256
+    model_dim: 128
+    dropout: 0.7
+    epochs: 100
+    gamma: 0.5
+    lr: 0.001
+    loader: full
+    layers: 2
+    norm: False
+    pre_aug: True
+    root: ~/workspace/data/surgeon/git
+    task: mcc
+  photo:
+    batch_size: 1000
+    aug_dim: 256
+    model_dim: 128
+    dropout: 0.6
+    epochs: 50
+    gamma: 0.001
+    lr: 0.001
+    loader: full
+    layers: 2
+    norm: False
+    pre_aug: False
+    root: ~/workspace/data/surgeon/Photo
+    task: mcc 
+    workers: 32
+  physics:
+    batch_size: 1280
+    aug_dim: 256
+    model_dim: 128
+    dropout: 0.6
+    epochs: 100
+    gamma: 0.01
+    loader: subgraph
+    lr: 0.001
+    layers: 2
+    norm: False
+    pre_aug: True
+    root: ~/workspace/data/surgeon/Physics
+    task: mcc 
+    workers: 32
+  pubmed:
+    batch_size: 1280
+    aug_dim: 256
+    model_dim: 128
+    dropout: 0.6
+    epochs: 50
+    gamma: 0.001
+    lr: 0.001
+    loader: full
+    layers: 2
+    norm: False
+    pre_aug: True
+    root: ~/workspace/data/surgeon/pubmed
+    task: mcc 
+    workers: 32
+  reddit:
+    batch_size: 2048
+    aug_dim: 1024
+    model_dim: 128
+    dropout: 0.75
+    epochs: 10
+    gamma: 0.01
+    loader: subgraph
+    lr: 0.001
+    layers: 2
+    norm: False
+    pre_aug: True
+    root: ~/workspace/data/surgeon/reddit
+    task: mcc 
+    workers: 32
+  wiki:
+    batch_size: 1000
+    aug_dim: 256
+    model_dim: 128
+    dropout: 0.5
+    epochs: 50
+    gamma: 0.1
+    lr: 0.01
+    loader: full
+    layers: 2
+    norm: False
+    pre_aug: True
+    root: ~/workspace/data/surgeon/WikiCS
+    task: mcc
+    workers: 32
+  yelp:
+    batch_size: 2048
+    aug_dim: 820
+    model_dim: 128
+    dropout: 0.5
+    epochs: 100
+    gamma: 0.01
+    lr: 0.001
+    loader: subgraph
+    layers: 2
+    norm: False
+    pre_aug: True
+    root: ~/workspace/data/surgeon/yelp
+    task: mlc 
+    workers: 32
