@@ -1,0 +1,5 @@
+*.py[co]
+data/
+.idea/
+.vscode/
+.ipynb_checkpoints
