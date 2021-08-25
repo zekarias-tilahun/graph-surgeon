@@ -1,4 +1,4 @@
-# A PyTorch implementation of GraphSurgeon 
+# A PyTorch implementation of the GraphSurgeon [paper](https://arxiv.org/abs/2108.10420)
 
 ## Requirements!
 
