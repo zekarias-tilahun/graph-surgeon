@@ -45,10 +45,9 @@ exclusive) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`loader`: `<string_value>` from {`full`, `neighborhood`, `cluster`, `saint`} - Here
 we specify the type of GNN, full-batch or sampling based (`neighborhood` - for GraphSAGE neighborhood
 sampling, `cluster` - for ClusterGCN, `saint` - for GraphSaint subgraph sampling) <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`lr`: ```<float_value>` - learning rate <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`lr`: `<float_value>` - learning rate <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`layers`: `<int_value>` - The number of layers of the GNN encoder <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pre_aug`: `<
-bool_value>` - True for pre-augmenation and False for post-augmentation <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pre_aug`: `<bool_value>` - True for pre-augmenation and False for post-augmentation <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`root`: `<string_value>` - A path to the directory to store the dataset <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`task`: `<string_value>` from {`bc`, `mcc`, `mlc`} - The desired down-stream task,
 `bc` - binary classification, `mcc` - multi-class classification and
