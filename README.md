@@ -26,11 +26,10 @@ $ python src/tune.py
 
 ## Possible options for training GraphSurgeon
 
-The following options can be configured in the ```config.yml``` file, which contains the following ```key```:```value```
-pairs
+The ```config.yml``` file can be used to configure the hyperparameters of GraphSurgeon, and this can be done by using
+the following ```key```:```value``` pairs
 
 `active`: `<name>` - the `active` key is used to specify the `name` of the dataset that we wish to run <br>
-
 `datasets`: `dataset_config_list` - The `datasets` key identifies a list of dataset config. Each dataset config in
 `dataset_config_list` is further identified by a key (the `name` of the dataset) that contains the following nested
 `key`:`value` pairs. <br>
