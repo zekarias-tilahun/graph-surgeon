@@ -1,4 +1,4 @@
-from torch_geometric.nn import GCNConv, GATConv, GraphConv, SAGEConv, BatchNorm
+from torch_geometric.nn import GCNConv, SAGEConv, BatchNorm
 from tqdm import tqdm
 import torch.nn.functional as F
 import torch.nn as nn
@@ -73,7 +73,6 @@ class AugmentationLayer(SurgeonModule):
         """
         pbar = tqdm(total=x_all.size(0))
         pbar.set_description('Inferring views')
-
         
         x1s, x2s = [], []
         for i in range(0, x_all.shape[0], batch_size):
@@ -187,7 +186,6 @@ class Encoder(SurgeonModule):
         """
         pbar = tqdm(total=x_all.size(0) * len(self.stacked_gnn))
         pbar.set_description('Inferring embeddings of a view')
-        gpu = self.device
         
         for i, conv in enumerate(self.stacked_gnn):
             xs = []
@@ -248,7 +246,7 @@ class Surgeon(SurgeonModule):
         if self.agg_method == "mean":
             return (x1 + x2) / 2.
         elif self.agg_method == "sum":
-            return (x1 + x2)
+            return x1 + x2
         return torch.cat([x1, x2], dim=-1)
     
     def _forward(self, x, edge_index, edge_attr=None):

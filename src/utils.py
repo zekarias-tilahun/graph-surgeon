@@ -12,8 +12,6 @@ torch.manual_seed(0)
 
 DATASET = 'dataset'
 TRAIN_LOADER = 'train_loader'
-VAL_LOADER = 'val_loader'
-TEST_LOADER = 'test_loader'
 SUBGRAPH_LOADER = 'subgraph_loader'
 
 
@@ -88,18 +86,6 @@ def create_mask(data, train_rate=0.05, val_rate=0.15):
 def create_dirs(root, name_list):
     for name in name_list:
         os.makedirs(osp.join(root, name), exist_ok=True)
-
-
-def split_dataset(dataset):
-    data = dataset.data
-    train_indices = data.train_mask.nonzero(as_tuple=True)[0]
-    val_indices = data.val_mask.nonzero(as_tuple=True)[0]
-    test_indices = data.test_mask.nonzero(as_tuple=True)[0]
-    
-    train_dataset = dataset[train_indices]
-    val_dataset = dataset[val_indices]
-    test_dataset = dataset[test_indices]
-    return train_dataset, val_dataset, test_dataset
 
 
 def to_gnn_input(batch, full_data=None):

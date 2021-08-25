@@ -1,10 +1,8 @@
-from torch_geometric.data import Data, Batch, ClusterData, ClusterLoader, InMemoryDataset
-from torch_geometric.data import DataLoader, GraphSAINTRandomWalkSampler, NeighborSampler
+from torch_geometric.data import ClusterData, ClusterLoader, InMemoryDataset
+from torch_geometric.data import GraphSAINTRandomWalkSampler, NeighborSampler
 from torch_geometric.datasets import CitationFull, Coauthor, Amazon, WikiCS, Flickr
-from torch_geometric.datasets import Actor, PPI, Reddit, Yelp
-from pyg_datasets import AmazonProducts, FacebookPagePage, GitHub
-from torch_geometric.transforms import GDC
-import torch_geometric.transforms as T
+from torch_geometric.datasets import Actor, Reddit, Yelp
+from pyg_datasets import FacebookPagePage, GitHub
 
 import os.path as osp
 
@@ -73,9 +71,11 @@ class CompiledDataset:
         return compiled_data
             
 
-
 class Dataset(InMemoryDataset):
 
+    """
+    A unified dataset object for PyTorch Geometric datasets
+    """
     def __init__(self, root, transform=None, pre_transform=None):
         super(Dataset, self).__init__(root, transform, pre_transform)
         print("Loading data ...")
@@ -136,7 +136,7 @@ def update_if(dataset):
         data.val_mask = val_mask
         data.test_mask = test_mask
     if isinstance(data.y, torch.LongTensor):
-        if len(data.y.shape) > 1 and data.y.sum(dim=-1) > 1: # is multi-label
+        if len(data.y.shape) > 1 and data.y.sum(dim=-1) > 1:  # is multi-label
             print("Casting class labels to float tensor ...")
             data.y = data.y.float()
             updated = True
