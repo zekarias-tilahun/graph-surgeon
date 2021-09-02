@@ -88,7 +88,7 @@ def create_dirs(root, name_list):
         os.makedirs(osp.join(root, name), exist_ok=True)
 
 
-def to_gnn_input(batch, full_data=None):
+def to_surgeon_input(batch, full_data=None):
     if isinstance(batch, Data):
         x = batch.x
         edge_index = batch.edge_index

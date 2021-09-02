@@ -80,8 +80,8 @@ class SelfExec:
         losses = []
         torch.autograd.set_detect_anomaly(True)
         for data in self._loader:
-            gnn_input = utils.to_gnn_input(batch=data, full_data=self.dataset.data)
-            loss = learner(**gnn_input)
+            surgeon_input = utils.to_surgeon_input(batch=data, full_data=self.dataset.data)
+            loss = learner(**surgeon_input)
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
@@ -144,7 +144,7 @@ class SelfExec:
         elif data is None:
             z = y = None
             for data in loader:
-                gnn_input = utils.to_gnn_input(batch=data, full_data=self.dataset.data)
+                gnn_input = utils.to_surgeon_input(batch=data, full_data=self.dataset.data)
                 z_ = learner.infer(**gnn_input)
                 if z is None:
                     z, y = z_, data.y
