@@ -2,9 +2,9 @@
 
 ## Requirements!
 
-- Python 3.6+
-- PyTorch 1.6+
-- PyTorch Geometric 1.6+
+- Python 3.7+
+- PyTorch 1.9.0
+- PyTorch Geometric 1.7.2
 - Numpy 1.17.2+
 - Networkx 2.3+
 - SciPy 1.5.4+

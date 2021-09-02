@@ -1,8 +1,8 @@
 from torch_geometric.data import ClusterData, ClusterLoader, InMemoryDataset
 from torch_geometric.data import GraphSAINTRandomWalkSampler, NeighborSampler
 from torch_geometric.datasets import CitationFull, Coauthor, Amazon, WikiCS, Flickr
-from torch_geometric.datasets import Actor, Reddit, Yelp
-from pyg_datasets import FacebookPagePage, GitHub
+from torch_geometric.datasets import Actor, Reddit, Yelp, FacebookPagePage, GitHub
+#from pyg_datasets import FacebookPagePage, GitHub
 
 import os.path as osp
 

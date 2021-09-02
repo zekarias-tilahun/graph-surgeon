@@ -37,7 +37,7 @@ class Config:
         
 
 def parse_args(use_best=True):
-    with open("../config.yml") as f:
+    with open("./config.yml") as f:
         config = yaml.safe_load(f)
     
     if config['active'] != "all":
@@ -47,7 +47,7 @@ def parse_args(use_best=True):
         config['device'] = torch.device("cuda:0")
         config['name'] = name
         if use_best:
-            with open(f"../params/{name}.yml") as f:
+            with open(f"./params/{name}.yml") as f:
                 best_conf = yaml.safe_load(f)
                 config['lr'] = best_conf['lr']
                 config['gamma'] = best_conf['gamma']

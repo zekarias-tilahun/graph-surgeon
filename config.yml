@@ -27,7 +27,7 @@
         # workers: <int_value> - The number of cpu workers for reading data
 
 
-active: wiki 
+active: facebook
 datasets:
   actor:
     batch_size: 1000 
