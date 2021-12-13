@@ -217,7 +217,7 @@ class LinearEvalExec:
                 train_mask, val_mask=val_mask,
                 test_mask=test_mask, index=mask_index)
 
-            for i in range(100):
+            for i in range(500):
                 self._classifier.train()
                 logits, loss = self.__feed(x=x, y=y, mask=train_mask)
                 opt.zero_grad()

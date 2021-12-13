@@ -44,7 +44,7 @@ def parse_args(use_best=True):
         name = config['active']
         config = config["datasets"][name]
         config['root'] = osp.expanduser(config['root'])
-        config['device'] = torch.device("cuda:0")
+        config['device'] = torch.device(f"cuda:{get_device_id()}")
         config['name'] = name
         if use_best:
             with open(f"./params/{name}.yml") as f:
@@ -99,3 +99,14 @@ def to_surgeon_input(batch, full_data=None):
         edge_index = [elem for elem in adjs]  # edge_index = (edge_index, e_id, size)
         edge_attr = None
     return {'x': x, 'edge_index': edge_index, 'edge_attr': edge_attr}
+
+
+def get_device_id():
+    gpu_0_free_space, _ = get_gpu_memory_from_nvidia_smi(device=0)
+    gpu_1_free_space, _ = get_gpu_memory_from_nvidia_smi(device=1)
+    if gpu_0_free_space < 2000 and gpu_1_free_space < 2000:
+        device_id = -1
+    else:
+        device_id = 0 if gpu_0_free_space > gpu_1_free_space else 1
+    print(f"Automatically selected device: gpu {device_id}")
+    return device_id

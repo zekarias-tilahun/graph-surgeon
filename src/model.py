@@ -240,7 +240,7 @@ class Surgeon(SurgeonModule):
                 (x1.matmul(x1.t()) - I).norm() + 
                 (x2.matmul(x2.t()) - I).norm()
             )
-        return mse + constraint
+        return 1000 * mse + constraint
 
     def aggregate_views(self, x1, x2):
         if self.agg_method == "mean":
